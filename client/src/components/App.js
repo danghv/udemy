@@ -16,7 +16,6 @@ class App extends Component {
         this.props.onLoadUser()
     }
     render() {
-        console.log(this.props.auth)
         return (
             <div className="container">
                 <BrowserRouter>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Payments from './Payments'
+import axios from 'axios'
 
 class Header extends Component {
     renderContent() {
@@ -10,8 +11,26 @@ class Header extends Component {
                 return;
             case false:
                 return [
-                    <li><a href="/auth/google">Login with Google</a></li>,
-                    <li><a href="/auth/facebook">Login with Facebook</a></li>
+                    <li key={1}><a href="/auth/google">Login with Google</a></li>,
+                    <li key={2}><a href="/auth/facebook">Login with Facebook</a></li>,
+                    <li key={3}>
+                        <a
+                            onClick={(e) => {
+                                e.preventDefault()
+                                axios.post('/auth/login', { email: 'test@gmai.com', password: '123'})
+                                    .then(res => console.log('...', res))
+                            }}>Login
+                        </a>
+                    </li>,
+                    <li key={4}>
+                    <a
+                        onClick={(e) => {
+                            e.preventDefault()
+                            axios.post('/signup', { email: 'test@gmai.com', password: '123'})
+                                .then(res => console.log('...', res))
+                        }}>Signup
+                    </a>
+                </li>
                 ]
             default:
                 return [

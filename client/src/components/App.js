@@ -6,6 +6,7 @@ import fetchUser from '../actions'
 
 import Header from './Header'
 import Landing from './Landing'
+import Signup from './Signup'
 
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
@@ -24,6 +25,7 @@ class App extends Component {
                         <Route exact={true} path="/" component={Landing} />
                         <Route exact path="/surveys" component={Dashboard} />
                         <Route path="/surveys/new" component={SurveyNew} />
+                        <Route path="/signup" component={Signup} />
                     </div>
                 </BrowserRouter>
             </div>
